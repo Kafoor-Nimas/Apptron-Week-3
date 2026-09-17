@@ -1,0 +1,10 @@
+{
+  "tailwindCSS.experimental.configFile": {
+    "react-10-custom-hooks/src/index.css": "react-10-custom-hooks/**",
+    "day-2-task/src/index.css": "day-2-task/**",
+    "day-3-task/src/index.css": "day-3-task/**"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
+}
