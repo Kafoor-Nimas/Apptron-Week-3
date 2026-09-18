@@ -21,7 +21,7 @@ const Dashboard = () => {
   // Dashboard Statistics
   const totalProducts = products.length;
   const availableProducts = products.filter((p) => p.stock > 0).length;
-  const OutOfStockProducts = products.filter((p) => p.stock === 0).length;
+  const outOfStockProducts = products.filter((p) => p.stock === 0).length;
   const totalValue = products.reduce((sum, p) => sum + p.price * p.stock, 0);
 
   return (
@@ -56,7 +56,7 @@ const Dashboard = () => {
           <div>
             <p className="text-xs font-semibold text-[#66736A]">Out of Stock</p>
             <p className="text-2xl font-serif font-bold text-rose-600 mt-1">
-              {OutOfStockProducts}
+              {outOfStockProducts}
             </p>
           </div>
           <AlertTriangle className="w-8 h-8 text-rose-600" />

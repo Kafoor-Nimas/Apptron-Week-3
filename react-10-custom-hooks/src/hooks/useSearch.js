@@ -10,7 +10,7 @@ export const useSearch = (items) => {
 
     return items.filter(
       (item) =>
-        item.name.toLowercase().includes(term) ||
+        item.name.toLowerCase().includes(term) ||
         item.brand.toLowerCase().includes(term),
     );
   }, [items, searchTerm]);

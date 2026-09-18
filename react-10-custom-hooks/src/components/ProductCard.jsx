@@ -81,8 +81,12 @@ const ProductCard = ({ product, onStockChange }) => {
             >
               <Plus className="w-3.5 h-3.5" />
             </button>
-            <button onClick={handleReset} className="p-2 bg-white border border-[#E4DED0] rounded-lg text-[#66736A] hover:text-[#C8A45D] transition-colors" title="Reset Stock">
-              <RotateCcw className="w-3.5 h-3.5"/>
+            <button
+              onClick={handleReset}
+              className="p-2 bg-white border border-[#E4DED0] rounded-lg text-[#66736A] hover:text-[#C8A45D] transition-colors"
+              title="Reset Stock"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
