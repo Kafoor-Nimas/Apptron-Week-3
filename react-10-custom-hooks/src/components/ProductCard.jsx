@@ -7,6 +7,7 @@ const ProductCard = ({ product, onStockChange }) => {
     increment,
     decrement,
     reset,
+    initial,
   } = useCounter(product.stock);
 
   const handleIncrement = () => {
@@ -23,7 +24,7 @@ const ProductCard = ({ product, onStockChange }) => {
 
   const handleReset = () => {
     reset();
-    onStockChange(product.id, product.stock);
+    onStockChange(product.id, initial);
   };
 
   return (

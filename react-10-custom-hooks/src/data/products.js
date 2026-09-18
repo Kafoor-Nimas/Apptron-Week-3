@@ -51,13 +51,13 @@ export const initialProducts = [
   },
   {
     id: 6,
-    name: "Kandy Royal Ceylon Tea",
-    brand: "Ceylon Highlands",
-    category: "Black Tea",
-    price: 19.0,
-    stock: 15,
+    name: "Lemongrass Citrus Tea",
+    brand: "Herbal Roots",
+    category: "Herbal Tea",
+    price: 15.0,
+    stock: 0,
     image:
-      "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: 7,
@@ -97,6 +97,6 @@ export const initialProducts = [
     price: 18.5,
     stock: 22,
     image:
-      "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80",
   },
 ];
