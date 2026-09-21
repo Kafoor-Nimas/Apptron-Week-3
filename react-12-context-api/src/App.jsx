@@ -1,8 +1,17 @@
+import { ThemeProvider } from "./context/ThemeContext";
+import { UserProvider } from "./context/UserContext";
+import Dashboard from "./pages/Dashboard";
+
 const App = () => {
   return (
-    <div>
-      <h1 className="text-2xl underline">Nimas</h1>
-    </div>
+    <UserProvider>
+      <ThemeProvider>
+        <Dashboard/>
+
+
+      </ThemeProvider>
+      
+    </UserProvider>
   );
 };
 
