@@ -9,7 +9,7 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`w-full md:w-64 p-5 border-r min-h-screen transition-colors ${
+      className={`w-full md:w-64 p-5 border-r min-h-[calc(50vh-65px)] transition-colors ${
         theme === "dark"
           ? "bg-[#0F172A] border-slate-700 text-slate-300"
           : "bg-[#FFFDF7] border-[#E4DED0] text-[#66736A]"
