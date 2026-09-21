@@ -1,4 +1,4 @@
-import { Leaf, Mail, Shield } from "lucide-react";
+import { Leaf, Shield } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { useUser } from "../context/UserContext";
 
@@ -38,11 +38,6 @@ const Navbar = () => {
               <span className="flex items-center gap-1">
                 <Shield className="w-3 h-3 text-[#C8A45D]" />
                 {currentUser.id}
-              </span>
-              <span>•</span>
-              <span className="flex items-center gap-1">
-                <Mail className="w-3 h-3" />
-                {currentUser.email}
               </span>
             </div>
           </div>

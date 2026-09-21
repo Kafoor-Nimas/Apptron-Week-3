@@ -6,7 +6,7 @@ export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({
     name: "Kafoor Nimas",
     id: "EMP-1001",
-    email: "nimas.p@ceylontea.com",
+    email: "nimas@gmail.com",
     department: "Inventory & Logistics",
     designation: "Senior Inventory Manager",
     profileImage:
