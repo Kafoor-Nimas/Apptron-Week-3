@@ -2,7 +2,7 @@ import { Building, Mail } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { useUser } from "../context/UserContext";
 
-const Profilecard = () => {
+const ProfileCard = () => {
   const { theme } = useTheme();
   const { currentUser } = useUser();
   return (
@@ -46,4 +46,4 @@ const Profilecard = () => {
   );
 };
 
-export default Profilecard;
+export default ProfileCard;
