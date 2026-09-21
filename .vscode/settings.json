@@ -1,9 +1,7 @@
 {
   "tailwindCSS.experimental.configFile": {
     "react-10-custom-hooks/src/index.css": "react-10-custom-hooks/**",
-    "react-12-context-api/src/index.css": "react-10-context-api/**",
-    "day-2-task/src/index.css": "day-2-task/**",
-    "day-3-task/src/index.css": "day-3-task/**"
+    "react-12-context-api/src/index.css": "react-12-context-api/**"
   },
   "editor.quickSuggestions": {
     "strings": "on"
