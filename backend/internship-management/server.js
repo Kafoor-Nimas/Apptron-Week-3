@@ -1,6 +1,9 @@
 const express = require("express");
+const studentRoutes = require("./src/routes/student.routes");
 
 const app = express();
+
+app.use("/api/students", studentRoutes);
 
 app.get("/", (req, res) => {
   res.send("Backend Server Running");
