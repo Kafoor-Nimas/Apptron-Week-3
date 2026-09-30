@@ -1,10 +1,11 @@
 const express = require("express");
+const {
+  getTrainers,
+  addTrainer,
+} = require("../controllers/trainer.controller");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.json({
-    message: "Trainer router working",
-  });
-});
+router.get("/", getTrainers);
+router.post("/", addTrainer);
 
 module.exports = router;
