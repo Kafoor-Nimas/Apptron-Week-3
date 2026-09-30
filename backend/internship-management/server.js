@@ -9,6 +9,7 @@ const app = express();
 app.use("/api/students", studentRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/trainers", trainerRoutes);
+app.use("/api/tasks", taskRoutes);
 
 app.get("/", (req, res) => {
   res.send("Backend Server Running");
