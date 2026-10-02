@@ -3,9 +3,11 @@ const studentRoutes = require("./src/routes/student.routes");
 const taskRoutes = require("./src/routes/task.routes");
 const trainerRoutes = require("./src/routes/trainer.routes");
 const courseRoutes = require("./src/routes/course.routes");
+const logger = require("./src/middleware/logger.middleware");
 
 const app = express();
 
+app.use(logger);
 app.use("/api/students", studentRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/trainers", trainerRoutes);
