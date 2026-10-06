@@ -6,6 +6,8 @@ const getStudents = (req, res) => {
 };
 
 const addStudent = (req, res) => {
+
+  const 
   res.json({
     success: true,
     message: "Student Added Successfully",
