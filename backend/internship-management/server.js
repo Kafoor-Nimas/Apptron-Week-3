@@ -8,13 +8,13 @@ const errorHandler = require("./src/middleware/error.middleware");
 const connectDB = require("./src/config/db");
 const dotenv = require("dotenv");
 
-
 dotenv.config();
 
 const app = express();
 
 connectDB();
 
+app.use(express.json());
 app.use(logger);
 app.use("/api/students", studentRoutes);
 app.use("/api/courses", courseRoutes);
