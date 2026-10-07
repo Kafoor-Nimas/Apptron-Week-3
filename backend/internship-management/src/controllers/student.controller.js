@@ -1,21 +1,56 @@
 const studentModel = require("../models/student.model");
 
 const getStudents = async (req, res) => {
-  const students = await studentModel.find();
+  try {
+    const students = await studentModel.find();
 
-  if (!students || students.length === 0) {
-    return res.status(404).json({
+    if (!students || students.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "No students found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Students fetched successfully",
+      count: students.length,
+      data: students,
+    });
+  } catch (error) {
+    return res.status(500).json({
       success: false,
-      message: "No students found",
+      message: "Internel server error",
+      error: error.message,
     });
   }
+};
 
-  return res.status(200).json({
-    success: true,
-    message: "Students fetched successfully",
-    count: students.length,
-    data: students,
-  });
+const getSingleStudent = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const student = await studentModel.findById(id);
+
+    if (!student) {
+      return res.status(404).json({
+        success: false,
+        message: "Student not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Student fetched successfully",
+      data: student,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
 };
 
 const addStudent = async (req, res) => {
@@ -71,4 +106,5 @@ const addStudent = async (req, res) => {
 module.exports = {
   getStudents,
   addStudent,
+  getSingleStudent,
 };
