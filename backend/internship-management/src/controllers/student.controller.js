@@ -1,9 +1,20 @@
 const studentModel = require("../models/student.model");
 
-const getStudents = (req, res) => {
-  res.json({
+const getStudents = async (req, res) => {
+  const students = await studentModel.find();
+
+  if (!students || students.length === 0) {
+    return res.status(404).json({
+      success: false,
+      message: "No students found",
+    });
+  }
+
+  return res.status(200).json({
     success: true,
-    students: [{ id: "CT-2021-004", name: "Nimas" }],
+    message: "Students fetched successfully",
+    count: students.length,
+    data: students,
   });
 };
 
