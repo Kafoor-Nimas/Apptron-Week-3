@@ -132,9 +132,36 @@ const updateStudent = async (req, res) => {
   }
 };
 
+const deleteStudent = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const deletedStudent = await studentModel.findByIdAndDelete(id);
+
+    if (!deletedStudent) {
+      return res.status(404).json({
+        success: false,
+        message: "Student not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Student deleted successfully",
+      data: deletedStudent,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: "Validation failed or invalid ID format",
+    });
+  }
+};
+
 module.exports = {
   getStudents,
   addStudent,
   getSingleStudent,
-  updateStudent
+  updateStudent,
+  deleteStudent
 };
