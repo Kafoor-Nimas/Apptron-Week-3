@@ -103,8 +103,38 @@ const addStudent = async (req, res) => {
   }
 };
 
+const updateStudent = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const updatedStudent = await studentModel.findByIdAndUpdate(id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!updatedStudent) {
+      return res.status(404).json({
+        success: false,
+        message: "Student not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Student updated successfully",
+      data: updatedStudent,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: "Validation failed or invalid ID format",
+    });
+  }
+};
+
 module.exports = {
   getStudents,
   addStudent,
   getSingleStudent,
+  updateStudent
 };
