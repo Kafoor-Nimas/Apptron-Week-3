@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true,"Role is required"],
       enum: {
-        values: ["Admin", "Student"],
+        values: ["Admin", "Student","Trainer"],
         message: "Role must be either Admin or Student"
       },
       default:"Student"
