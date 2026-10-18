@@ -84,7 +84,28 @@ const checkOut = async (req, res) => {
   }
 };
 
+const getAttendance = async (req, res) => {
+    try {
+        const records = await Attendance.find().populate("studentId", "name email role");
+
+        return res.status(200).json({
+            success: true,
+            message: "Attendance records retrieved successfully.",
+            count: records.length,
+            data: records,
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            success: false,
+            message: "Server Error",
+            error: error.message,
+        });
+    }
+}
+
 module.exports = {
   checkIn,
   checkOut,
+  rgetAttendance,
 };
