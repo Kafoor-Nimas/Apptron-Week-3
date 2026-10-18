@@ -107,5 +107,5 @@ const getAttendance = async (req, res) => {
 module.exports = {
   checkIn,
   checkOut,
-  rgetAttendance,
+  getAttendance,
 };

@@ -8,6 +8,7 @@ const logger = require("./src/middleware/logger.middleware");
 const errorHandler = require("./src/middleware/error.middleware");
 const connectDB = require("./src/config/db");
 const dotenv = require("dotenv");
+const attendanceRoutes = require("./src/routes/attendance.routes");
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use("/api/courses", courseRoutes);
 app.use("/api/trainers", trainerRoutes);
 app.use("/api/tasks", taskRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/attendance", attendanceRoutes);
 
 app.get("/error", (req, res, next) => {
   const error = new Error("This is a test error");
