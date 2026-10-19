@@ -34,6 +34,35 @@ const createTask = async (req, res) => {
   }
 };
 
+const getTasks = async (req, res) => {
+  try {
+    let query = {};
+
+    if (req.user.role === "Student") {
+      query.assignedTo = req.user.id;
+    }
+
+    const tasks = await taskModel
+      .find(query)
+      .populate("assignedTo", "name email role");
+
+    return res.status(200).json({
+      success: true,
+      count: tasks.length,
+      message: "Tasks fetched successfully",
+      data: tasks,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createTask,
+  getTasks,
 };
