@@ -116,8 +116,42 @@ const getMeetingsById = async (req, res) => {
   }
 };
 
+const updateMeeting = async (req, res) => {
+  try {
+    const meetingId = req.params.id;
+
+    const meeting = await meetingModel.findById(meetingId);
+
+    if (!meeting) {
+      return res.status(404).json({
+        success: false,
+        message: "Meeting not found",
+      });
+    }
+
+    const updatedMeeting = await meetingModel.findByIdAndUpdate(
+      meetingId,
+      req.body,
+      { new: true, runValidators: true },
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Meeting updated successfully",
+      data: updatedMeeting,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      message: "Internel Server Error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createMeeting,
   getMeetings,
-  getMeetingsById
+  getMeetingsById,
 };
