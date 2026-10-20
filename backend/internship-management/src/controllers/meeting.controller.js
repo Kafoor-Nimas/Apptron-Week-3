@@ -77,7 +77,47 @@ const getMeetings = async (req, res) => {
   }
 };
 
+const getMeetingsById = async (req, res) => {
+  try {
+    const meetingId = req.params.id;
+
+    const meeting = await meetingModel
+      .findById(meetingId)
+      .populate("studentId", "name email role");
+
+    if (!meeting) {
+      return res.status(404).json({
+        success: false,
+        message: "Meeting not found",
+      });
+    }
+
+    if (
+      req.user.role === "Student" &&
+      meeting.studentId._id.toString() !== req.user.id
+    ) {
+      return res.status(403).json({
+        success: false,
+        message: "Access denied. You can only view your own meetings",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: meeting,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      message: "Internel Server Error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createMeeting,
   getMeetings,
+  getMeetingsById
 };
