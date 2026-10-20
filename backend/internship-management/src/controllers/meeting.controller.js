@@ -48,6 +48,36 @@ const createMeeting = async (req, res) => {
   }
 };
 
+const getMeetings = async (req, res) => {
+  try {
+    let query = {};
+
+    // Student can only view their own meetings
+    if (req.user.role === "Student") {
+      query.studentId = req.user.id;
+    }
+
+    const meetings = await meetingModel
+      .find(query)
+      .populate("studentId", "name email role");
+
+    return res.status(200).json({
+      success: true,
+      message: "Get meetings successfully",
+      count: meetings.length,
+      data: meetings,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      message: "Internel Server Error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createMeeting,
+  getMeetings,
 };
