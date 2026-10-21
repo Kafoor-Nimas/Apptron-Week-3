@@ -13,10 +13,11 @@ const registerUser = async (req, res) => {
       });
     }
 
-    if (!["Admin", "Student"].includes(role)) {
+    if (!["Admin", "Student", "Trainer"].includes(role)) {
       return res.status(400).json({
         success: false,
-        message: "Validation failed. Role must be either Admin or Student",
+        message:
+          "Validation failed. Role must be either Admin,Trainer or Student",
       });
     }
 
