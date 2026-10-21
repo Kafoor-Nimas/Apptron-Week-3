@@ -5,6 +5,7 @@ const courseRoutes = require("./src/routes/course.routes");
 const authRoutes = require("./src/routes/auth.routes");
 const taskRoutes = require("./src/routes/task.routes");
 const meetingRoutes = require("./src/routes/meeting.routes");
+const dashboardRoutes = require("./src/routes/dashboard.routes");
 const logger = require("./src/middleware/logger.middleware");
 const errorHandler = require("./src/middleware/error.middleware");
 const connectDB = require("./src/config/db");
@@ -26,6 +27,7 @@ app.use("/api/tasks", taskRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/attendance", attendanceRoutes);
 app.use("/api/meetings", meetingRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 app.get("/error", (req, res, next) => {
   const error = new Error("This is a test error");
