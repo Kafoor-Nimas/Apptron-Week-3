@@ -8,23 +8,23 @@ const userSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      required: [true,"Email is required"],
+      required: [true, "Email is required"],
       unique: true,
       lowercase: true,
     },
     password: {
       type: String,
-      required: [true,"Password is required"],
+      required: [true, "Password is required"],
       minlength: [6, "Password must be at least 6 characters long"],
     },
     role: {
       type: String,
-      required: [true,"Role is required"],
+      required: [true, "Role is required"],
       enum: {
-        values: ["Admin", "Student","Trainer"],
-        message: "Role must be either Admin or Student"
+        values: ["Admin", "Student", "Trainer"],
+        message: "Role must be either Admin or Student",
       },
-      default:"Student"
+      default: "Student",
     },
     status: {
       type: String,
