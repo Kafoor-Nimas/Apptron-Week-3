@@ -48,6 +48,20 @@ const registerUser = async (req, res) => {
       role,
     });
 
+    // --- NODEMAILER WELCOME EMAIL INTEGRATION ---
+    try {
+      const emailMessage = `Hi ${newUser.name},\n\nWelcome to our MERN Internship Portal! Your account has been successfully created with the role of ${newUser.role}.\n\nBest regards,\nInternship Management Team`;
+
+      await sendEmail({
+        email: newUser.email,
+        subject: "Welcome to MERN Internship Portal!",
+        message: emailMessage,
+      });
+    } catch (error) {
+      // Log error but don't fail registration if email dispatch fails
+      console.error("Email sending failed:", emailError.message);
+    }
+
     return res.status(201).json({
       success: true,
       message: "User registered successfully",
