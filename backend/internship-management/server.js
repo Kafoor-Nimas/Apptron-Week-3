@@ -1,4 +1,6 @@
+const dotenv = require("dotenv");
 const express = require("express");
+dotenv.config();
 const studentRoutes = require("./src/routes/student.routes");
 const trainerRoutes = require("./src/routes/trainer.routes");
 const courseRoutes = require("./src/routes/course.routes");
@@ -10,10 +12,7 @@ const paymentRoutes = require("./src/routes/payment.routes");
 const logger = require("./src/middleware/logger.middleware");
 const errorHandler = require("./src/middleware/error.middleware");
 const connectDB = require("./src/config/db");
-const dotenv = require("dotenv");
 const attendanceRoutes = require("./src/routes/attendance.routes");
-
-dotenv.config();
 
 const app = express();
 
